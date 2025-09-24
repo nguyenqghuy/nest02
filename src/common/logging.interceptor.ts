@@ -13,7 +13,7 @@ intercept(context: ExecutionContext, next: CallHandler): Observable<any> {
     const method = req.method;
     const url = req.url;
     const now = Date.now();
-
+    console.log(`Interceptor [${method}] ${url} - Request started`);
     return next.handle().pipe(
         tap(() => {
             const delay = Date.now() - now;

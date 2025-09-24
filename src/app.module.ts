@@ -6,6 +6,12 @@ import { EmployeesModule } from './employees/employees.module';
 import { LoggerService } from './logger/logger.service';
 import { LoggerMiddleware } from './common/logger.middleware';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { Language } from './languages/language.entity';
+import { Department } from './departments/department.entity';
+import { LanguagesController } from './languages/languages.controller';
+import { DepartmentsController } from './departments/departments.controller';
+import { LanguagesModule } from './languages/languages.module';
+import { DepartmentsModule } from './departments/departments.module';
 
 @Module({
   imports: [/* 
@@ -27,8 +33,9 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       synchronize: true,
     }),
     UsersModule,
-    EmployeesModule
-
+    EmployeesModule,
+    LanguagesModule,
+    DepartmentsModule,
   ],
   controllers: [AppController],
   providers: [AppService, LoggerService],
